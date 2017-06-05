@@ -54,29 +54,21 @@ function makeName() {
 			suffixArr.push(arguments[i][2][k]);
 		}
 	}
-	if (arguments) {
-		var pre1 = getRandom(prefixArr);
-		var pre2 = getRandom(prefixArr);
-		// Ensure unique prefixes
-		while ( pre2 == pre1 ) {
-			pre2 = getRandom(prefixArr);
-		}
-		var suf = getRandom(suffixArr);
-		// Leave a chance for single prefix even if there are 3 traits
-		if (cointoss()) {
-			var nameLower = pre1 + pre2 + suf;
-		} else {
-			var nameLower = pre1 + suf;
-		}
-		var nameUpper = nameLower.charAt(0).toUpperCase() + nameLower.slice(1);
-		return [speciesTraits, nameUpper];
-	} else {
-		var pre = getRandom(prefixArr);
-		var suf = getRandom(suffixArr);
-		var nameLower = pre + suf;
-		var nameUpper = nameLower.charAt(0).toUpperCase() + nameLower.slice(1)
-		return [speciesTraits, nameUpper];
+	var pre1 = getRandom(prefixArr);
+	var pre2 = getRandom(prefixArr);
+	// Ensure unique prefixes
+	while ( pre2 == pre1 ) {
+		pre2 = getRandom(prefixArr);
 	}
+	var suf = getRandom(suffixArr);
+	// Leave a chance for single prefix even if there are 3 traits
+	if (cointoss()) {
+		var nameLower = pre1 + pre2 + suf;
+	} else {
+		var nameLower = pre1 + suf;
+	}
+	var nameUpper = nameLower.charAt(0).toUpperCase() + nameLower.slice(1);
+	return [speciesTraits, nameUpper];
 }
 
 function makeRandomSpecies() {
