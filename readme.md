@@ -4,8 +4,9 @@
 
 A companion app for the Evolution table top game.  Evolution Names will generate a unique name for your species based on it's trait cards.
 
+[Launch It!](http://scott.loveless.org/evolution/)
+
 TODO:
 
-* Create the view
-* CSS Grid
+* Connect the view
 * Random Species Generator
