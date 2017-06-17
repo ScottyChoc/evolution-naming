@@ -1,0 +1,134 @@
+body {
+	background-color: #222;
+	height: 100%;
+	background: top center / cover url('../img/board.jpg') no-repeat fixed;
+	}
+#game {
+	width: 100%;
+	font-size: 4px;
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	justify-content: center;
+/*	grid-template-rows: repeat(2, 1fr);
+*/	}
+
+
+.card {
+	width: 41em;
+	height: 57.5em;
+	width: 100%;
+	/*height: 100%;*/
+	background: top center / cover;
+	margin: 1em;
+	-webkit-filter: grayscale(1);
+	filter: grayscale(1);
+	}
+
+	.card a {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.card:hover {
+		filter: none;
+		border-radius: 7.5%;
+		box-shadow: 0 0 10px #000;
+		z-index: 15;
+	}
+
+	.selected {
+	filter: none;
+	z-index: 10;
+	}
+
+.ambush {
+	background-image: url('../img/ambush.png');
+}
+
+.burrowing {
+	background-image: url('../img/burrowing.png');
+}
+
+.carnivore {
+	background-image: url('../img/carnivore.png');
+}
+
+.climbing {
+	background-image: url('../img/climbing.png');
+}
+
+.cooperation {
+	background-image: url('../img/cooperation.png');
+}
+
+.defensive-herding {
+	background-image: url('../img/defensive-herding.png');
+}
+
+.fat-tissue {
+	background-image: url('../img/fat-tissue.png');
+}
+
+.fertile {
+	background-image: url('../img/fertile.png');
+}
+
+.foraging {
+	background-image: url('../img/foraging.png');
+}
+
+.hard-shell {
+	background-image: url('../img/hard-shell.png');
+}
+
+.horns {
+	background-image: url('../img/horns.png');
+}
+
+.intelligence {
+	background-image: url('../img/intelligence.png');
+}
+
+.long-neck {
+	background-image: url('../img/long-neck.png');
+}
+
+.pack-hunting {
+	background-image: url('../img/pack-hunting.png');
+}
+
+.scavenger {
+	background-image: url('../img/scavenger.png');
+}
+
+.symbiosis {
+	background-image: url('../img/symbiosis.png');
+}
+
+.warning-call {
+	background-image: url('../img/warning-call.png');
+}
+
+@media only screen and (max-width: 1080px) {
+	#game {
+		grid-template-columns: repeat(5, 1fr);
+	}
+	@media only screen and (max-width: 880px) {
+	#game {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	@media only screen and (max-width: 680px) {
+	#game {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@media only screen and (max-width: 580px) {
+	#game {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@media only screen and (max-width: 380px) {
+	#game {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+}
