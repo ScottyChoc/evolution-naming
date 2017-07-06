@@ -1,87 +1,142 @@
-var traits = [
-	['ambush', ['ninja'], ['lurker']],
-	['bodySize', ['mega'], ['normous']],
-	['burrowing', ['diggo'], ['digger']],
-	['carnivore', ['chompa'], ['nom-nom']],
-	['climbing', ['ascendo'], ['riser']],
-	['cooperation', ['collaba'], ['pate']],
-	['defensiveHerding', ['flocka'], ['mob']],
-	['fatTissue', ['lardo'], ['chunk']],
-	['fertile', ['playa'], ['dado']],
-	['foraging', ['grubbo'], ['nibble']],
-	['hardShell', ['hardi'], ['dillo']],
-	['horns', ['loki'], ['prick']],
-	['intelligence', ['smarti'], ['geek']],
-	['longNeck', ['extendo'], ['stretcher']],
-	['symbiosis', ['protecto'], ['shield']],
-	['packHunting', ['swarma'], ['crew']],
-	['population', ['plenti'], ['peeps']],
-	['scavenger', ['vultu'], ['scrounger']],
-	['warningCall', ['alerta'], ['caw-caw']]];
+var traits = {
+  'ambush': { prefixes: ['ninja'],
+              suffixes: ['lurker'] },
+  'bodySize': { prefixes: ['mega'],
+              suffixes: ['normous'] },
+  'burrowing': { prefixes: ['diggo'],
+              suffixes: ['digger'] },
+  'carnivore': { prefixes: ['chompa'],
+              suffixes: ['nom-nom'] },
+  'climbing': { prefixes: ['ascendo'],
+              suffixes: ['riser'] },
+  'cooperation': { prefixes: ['collaba'],
+              suffixes: ['pate'] },
+  'defensiveHerding': { prefixes: ['flocka'],
+              suffixes: ['mob'] },
+  'fatTissue': { prefixes: ['lardo'],
+              suffixes: ['chunk'] },
+  'fertile': { prefixes: ['playa'],
+              suffixes: ['dado'] },
+  'foraging': { prefixes: ['grubbo'],
+              suffixes: ['nibble'] },
+  'hardShell': { prefixes: ['hardi'],
+              suffixes: ['dillo'] },
+  'horns': { prefixes: ['loki'],
+              suffixes: ['prick'] },
+  'intelligence': { prefixes: ['smarti'],
+              suffixes: ['geek'] },
+  'longNeck': { prefixes: ['extendo'],
+              suffixes: ['stretcher'] },
+  'symbiosis': { prefixes: ['protecto'],
+              suffixes: ['shield'] },
+  'packHunting': { prefixes: ['swarma'],
+              suffixes: ['crew'] },
+  'population': { prefixes: ['plenti'],
+              suffixes: ['peeps'] },
+  'scavenger': { prefixes: ['vultu'],
+              suffixes: ['scrounger'] },
+  'warningCall': { prefixes: ['alerta'],
+              suffixes: ['caw-caw'] },
+}
 
+var mySpecies = [];
+
+
+
+// return a random value from an array
 function getRandom(arr) {
-	// return a random value from an array
-	return arr[Math.floor(Math.random() * arr.length)]
+  return arr[Math.floor(Math.random() * arr.length)]
 }
 
+// Evolution is always left to chance
 function cointoss() {
-	// Evolution is always left to chance
-	var heads = true,
-			tails = false;
-	return getRandom([heads, tails])
+  var heads = true,
+      tails = false;
+  return getRandom([heads, tails])
 }
 
-function makeName() {
-	var speciesTraits = [];
-	// Create arrays for possible prefixes and suffixes
-	var prefixArr = [];
-	var suffixArr = [];
-	for ( i = 0; i < arguments.length; i++ ) {
-		speciesTraits.push(arguments[i][0]);
-		// iterate through each species' prefix array in case of new prefixes from user
-		for ( j = 0; j < arguments[i][1].length; j++ ) {
-			prefixArr.push(arguments[i][1][j]);
-		}
-		// iterate through each species' suffix array in case of new suffixes from user
-		for ( k = 0; k < arguments[i][2].length; k++ ) {
-			suffixArr.push(arguments[i][2][k]);
-		}
-	}
-	var pre1 = getRandom(prefixArr);
-	var pre2 = getRandom(prefixArr);
-	// Ensure unique prefixes
-	while ( pre2 == pre1 ) {
-		pre2 = getRandom(prefixArr);
-	}
-	var suf = getRandom(suffixArr);
-	// Leave a chance for single prefix even if there are more traits
-	if (cointoss()) {
-		var nameLower = pre1 + pre2 + suf;
-	} else {
-		var nameLower = pre1 + suf;
-	}
-	var nameUpper = nameLower.charAt(0).toUpperCase() + nameLower.slice(1);
-	return [speciesTraits, nameUpper];
+function makeName(traitsArr) {
+  // var speciesTraits = []; // create a view of the traits
+
+  // Create arrays for possible prefixes and suffixes
+  var prefixArr = [];
+  var suffixArr = [];
+
+  if ( traitsArr.length > 0 ) {
+    for ( i = 0; i < traitsArr.length; i++ ) {
+      // iterate through each species' prefix array in case of new prefixes from user
+      console.log('i: ' + i);
+      for ( j = 0; j < traitsArr[i].prefixes.length; j++ ) {
+        prefixArr.push(traitsArr[i].prefixes[j]);
+      }
+
+      // iterate through each species' suffix array in case of new suffixes from user
+      for ( k = 0; k < traitsArr[i].suffixes.length; k++ ) {
+        suffixArr.push(traitsArr[i].suffixes[k]);
+      }
+    }
+
+
+    var pre1 = getRandom(prefixArr);
+    var pre2 = getRandom(prefixArr);
+    // Ensure unique prefixes
+    while ( pre2 == pre1 ) {
+      pre2 = getRandom(prefixArr);
+    }
+    var suf = getRandom(suffixArr);
+    // A species can still have a single prefix even if there are more than 2 traits
+    if (cointoss()) {
+      var nameLower = pre1 + pre2 + suf;
+    } else {
+      var nameLower = pre1 + suf;
+    }
+    var nameUpper = nameLower.charAt(0).toUpperCase() + nameLower.slice(1);
+    return nameUpper;
+  } else {
+    return 'no traits';
+  }
 }
 
-function makeRandomSpecies(arr) {
-	var traitsArr = [];
-	var traitNames = ""
-	for ( i = 0; i < 3; i++ ) {
-	traitsArr.push(getRandom(arr));
-		for ( i = 0; i < traitsArr.length; i++ ) {
-			
-		}
-	}
-	return newTraits;
+function toggleTrait(self, id) {
+  var card = self;
+  if ( mySpecies.length < 3 ) {
+    card.classList.toggle('selected');
+
+
+
+
+    if ( !mySpecies.includes(card.id) ) {
+
+      for (var prop in traits) {
+        if (card.id == prop) {
+          console.log('match! ' + prop);
+          var innerObj = {};
+          innerObj[prop] = traits[prop]
+
+          mySpecies.push(innerObj);
+        }
+      }
+
+      console.log(mySpecies);
+      // console.log('Name: ' + makeName(mySpecies));
+
+
+    } else {
+      console.log('You already selected that trait');
+      return;
+      // TODO: Remove this trait from array
+    }
+  } else {
+    console.log('You cannot have more than 3 traits');
+    return;
+  }
+
+  // console.log('Name: ' + makeName(mySpecies));
+  return;
 }
 
 // Add new prefixes and suffixes to existing traits
-traits[0][1].push('super');
-traits[5][2].push('noodle');
+// traits.ambush.prefixes.push('super');
+// traits.ambush.suffixes.push('noodle');
 
-var species = makeName(traits[0], traits[5], traits[4]);
 
-console.log('Traits: ' + species[0] + '\n' + 'Name: ' + species[1]);
-
-console.log(makeRandomSpecies(traits));

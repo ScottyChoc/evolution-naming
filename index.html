@@ -3,31 +3,34 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Scientific Naming</title>
-	<h2 id="name">Species Name</h2>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
 	<script type="text/javascript" src="index.js" charset="utf-8"></script>
 </head>
 <body>
 	<h1>Scientific Names</h1>
-	<div id="game">
-			<div id="trait" class="card ambush"><a href="#"></a></div>
-			<div id="burrowing" class="card burrowing"><a href="#"></a></div>
-			<div id="carnivore" class="card carnivore"><a href="#"></a></div>
-			<div id="climbing" class="card climbing"><a href="#"></a></div>
-			<div id="cooperation" class="card cooperation"><a href="#"></a></div>
-			<div id="defensive-herding" class="card defensive-herding"><a href="#"></a></div>
-			<div id="fat-tissue" class="card fat-tissue selected"><a href="#"></a></div>
-			<div id="fertile" class="card fertile"><a href="#"></a></div>
-			<div id="foraging" class="card foraging"><a href="#"></a></div>
-			<div id="hard-shell" class="card hard-shell selected"><a href="#"></a></div>
-			<div id="horns" class="card horns selected"><a href="#"></a></div>
-			<div id="intelligence" class="card intelligence"><a href="#"></a></div>
-			<div id="long-neck" class="card long-neck"><a href="#"></a></div>
-			<div id="pack-hunting" class="card pack-hunting"><a href="#"></a></div>
-			<div id="scavenger" class="card scavenger"><a href="#"></a></div>
-			<div id="symbiosis" class="card symbiosis"><a href="#"></a></div>
-			<div id="warning-call" class="card warning-call"><a href="#"></a></div>
-	</div>
+
+	<h2 id="name">&nbsp;</h2>
+
+	<ul id="game">
+			<li id="ambush" class="card ambush" onclick="toggleTrait(this);"></li>
+			<li id="burrowing" class="card burrowing" onclick="toggleTrait(this);"></li>
+			<li id="carnivore" class="card carnivore" onclick="toggleTrait(this);"></li>
+			<li id="climbing" class="card climbing" onclick="toggleTrait(this);"></li>
+			<li id="cooperation" class="card cooperation" onclick="toggleTrait(this);"></li>
+			<li id="defensiveHerding" class="card defensive-herding" onclick="toggleTrait(this);"></li>
+			<li id="fatTissue" class="card fat-tissue" onclick="toggleTrait(this);"></li>
+			<li id="fertile" class="card fertile" onclick="toggleTrait(this);"></li>
+			<li id="foraging" class="card foraging" onclick="toggleTrait(this);"></li>
+			<li id="hardShell" class="card hard-shell" onclick="toggleTrait(this);"></li>
+			<li id="horns" class="card horns" onclick="toggleTrait(this);"></li>
+			<li id="intelligence" class="card intelligence" onclick="toggleTrait(this);"></li>
+			<li id="longNeck" class="card long-neck" onclick="toggleTrait(this);"></li>
+			<li id="packHunting" class="card pack-hunting" onclick="toggleTrait(this);"></li>
+			<li id="scavenger" class="card scavenger" onclick="toggleTrait(this);"></li>
+			<li id="symbiosis" class="card symbiosis" onclick="toggleTrait(this);"></li>
+			<li id="warningCall" class="card warning-call" onclick="toggleTrait(this);"></li>
+	</ul>
 </body>
 </html>
