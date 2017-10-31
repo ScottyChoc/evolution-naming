@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Scientific Naming</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -9,28 +10,34 @@
 	<script type="text/javascript" src="index.js" charset="utf-8"></script>
 </head>
 <body>
-	<h1>Scientific Names</h1>
-
-	<h2 id="name">&nbsp;</h2>
-
-	<ul id="game">
+	<div class="container">
+		<header>
+			<h1>Scientific Species Name Generator</h1>
+			<h2 id="name" class="name">Select up to 3 traits</h2><span class="refresh" onclick="makeName();"> ♻️</span>
+		</header>
+	
+		<ul class="cards">
 			<li id="ambush" class="card ambush" onclick="toggleTrait(this);"></li>
 			<li id="burrowing" class="card burrowing" onclick="toggleTrait(this);"></li>
 			<li id="carnivore" class="card carnivore" onclick="toggleTrait(this);"></li>
 			<li id="climbing" class="card climbing" onclick="toggleTrait(this);"></li>
 			<li id="cooperation" class="card cooperation" onclick="toggleTrait(this);"></li>
-			<li id="defensiveHerding" class="card defensive-herding" onclick="toggleTrait(this);"></li>
-			<li id="fatTissue" class="card fat-tissue" onclick="toggleTrait(this);"></li>
+			<li id="defensive-herding" class="card defensive-herding" onclick="toggleTrait(this);"></li>
+			<li id="fat-tissue" class="card fat-tissue" onclick="toggleTrait(this);"></li>
 			<li id="fertile" class="card fertile" onclick="toggleTrait(this);"></li>
 			<li id="foraging" class="card foraging" onclick="toggleTrait(this);"></li>
-			<li id="hardShell" class="card hard-shell" onclick="toggleTrait(this);"></li>
+			<li id="hard-shell" class="card hard-shell" onclick="toggleTrait(this);"></li>
 			<li id="horns" class="card horns" onclick="toggleTrait(this);"></li>
 			<li id="intelligence" class="card intelligence" onclick="toggleTrait(this);"></li>
-			<li id="longNeck" class="card long-neck" onclick="toggleTrait(this);"></li>
-			<li id="packHunting" class="card pack-hunting" onclick="toggleTrait(this);"></li>
+			<li id="long-neck" class="card long-neck" onclick="toggleTrait(this);"></li>
+			<li id="pack-hunting" class="card pack-hunting" onclick="toggleTrait(this);"></li>
 			<li id="scavenger" class="card scavenger" onclick="toggleTrait(this);"></li>
 			<li id="symbiosis" class="card symbiosis" onclick="toggleTrait(this);"></li>
-			<li id="warningCall" class="card warning-call" onclick="toggleTrait(this);"></li>
-	</ul>
+			<li id="warning-call" class="card warning-call" onclick="toggleTrait(this);"></li>
+			<li id="body-size" class="card body-size" onclick="toggleTrait(this);">Body Size</li>
+			<li id="population" class="card population" onclick="toggleTrait(this);">Population</li>
+		</ul>
+		<audio id="bark" src="bark.wav"></audio>
+	</div>
 </body>
 </html>
