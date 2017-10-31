@@ -32,7 +32,7 @@ const traits = [
     "suffixes": ["chunk"]},
     
     {"name": "fertile",
-    "prefixes": ["playa", "fuckin"],
+    "prefixes": ["playa", "friggin"],
     "suffixes": ["dado", "stuffer"]},
     
     {"name": "foraging",
